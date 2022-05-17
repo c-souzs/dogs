@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import GlobalStyles, { Button, Titulo } from './globalStyles';
 
 function App() {
+  const TituloFeito = styled(Titulo)``;
+  const ButtonFeito = styled(Button)``;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <Header />
+      <Footer />
+      <TituloFeito>Login</TituloFeito>
+      <Button novaCor='red'>Login</Button>
+      <input type='text' placeholder='Nome'/>
+    </>
   );
 }
 
