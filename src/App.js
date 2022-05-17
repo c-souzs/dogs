@@ -1,19 +1,22 @@
-import styled from 'styled-components';
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import GlobalStyles, { Button, Titulo } from './globalStyles';
+import { Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import GlobalStyles, { Button, Titulo } from "./globalStyles";
+import Login from "./Pages/Login";
+import { UserStorage } from "./store/UserContext";
 
 function App() {
-  const TituloFeito = styled(Titulo)``;
-  const ButtonFeito = styled(Button)``;
   return (
     <>
       <GlobalStyles />
-      <Header />
-      <Footer />
-      <TituloFeito>Login</TituloFeito>
-      <Button novaCor='red'>Login</Button>
-      <input type='text' placeholder='Nome'/>
+      <UserStorage>
+        <Header />
+        <Routes>
+          <Route path="/login/*" element={<Login />} />
+        </Routes>
+        <Footer />
+      </UserStorage>
     </>
   );
 }
