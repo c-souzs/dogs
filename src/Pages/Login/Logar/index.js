@@ -26,7 +26,7 @@ const Logar = () => {
   }
 
   return (
-    <section>
+    <>
       <C.LoginTitulo>Login</C.LoginTitulo>
       <form action='' onSubmit={enviarDados}>
         <Input label='Usuário' name="userName" {...userName}/>
@@ -34,7 +34,12 @@ const Logar = () => {
         {ctx.carregando ? <Button disabled='disabled'>Carregando...</Button> : <Button>Entrar</Button>}
         {ctx.erro ? <C.LoginErro>{ctx.erro}</C.LoginErro> : ''}
       </form>
-    </section>
+      <C.Cadastro>
+        <C.CadastroTitulo>Cadastre-se</C.CadastroTitulo>
+        <C.CadastroMensagem>Ainda não possui conta? Cadastre-se no site.</C.CadastroMensagem>
+        <C.CadastroLink to='/cadastrar'>Cadastre-se</C.CadastroLink>
+      </C.Cadastro>
+    </>
   )
 }
 
