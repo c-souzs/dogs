@@ -7,9 +7,14 @@ const validacao = {
     mensagem: "A senha precisa conter pelo menos 8 caracteres ...",
   },
   email: {
-    regex: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-    mensagem: 'Preencha um email válido.'
-  }
+    regex:
+      /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+    mensagem: "Preencha um email válido.",
+  },
+  numero: {
+    regex: /^\d+$/,
+    mensagem: "Preencha apenas números.",
+  },
 };
 
 const useForm = (tipo) => {
@@ -18,13 +23,13 @@ const useForm = (tipo) => {
 
   // CallBack do evento de mudança que valida o texto, caso esteja tudo ok ele seta o valor no estado.
   const onChange = ({ target }) => {
-    if(erro) validar(target.value);
+    if (erro) validar(target.value);
     setValor(target.value);
   };
 
   const onClick = () => {
-    setErro(null)
-  }
+    setErro(null);
+  };
 
   // É retornado false quando o vaor não esta validado e true quando esta tudo certo ou o elemento não precisa de validação
   const validar = (valor) => {
@@ -38,8 +43,15 @@ const useForm = (tipo) => {
       setErro(ref.mensagem);
       return false;
     } else {
-      setErro(null);
-      return true;
+      if (tipo === "numero") {
+        if (!(+valor > 0)) {
+          setErro("Preencha um valor maior que 0");
+          return false;
+        }
+      } else {
+        setErro(null);
+        return true;
+      }
     }
   };
 
