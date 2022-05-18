@@ -57,7 +57,7 @@ export function UserStorage({ children }) {
 
   return (
     <UserContext.Provider
-      value={{ logarUsuario, dadosUsuario, verificaLogin, erro, carregando }}
+      value={{ logarUsuario, removerLoginUsuario, dadosUsuario, verificaLogin, erro, carregando }}
     >
       {children}
     </UserContext.Provider>

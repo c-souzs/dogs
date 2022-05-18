@@ -16,9 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="login/*" element={<Login />} />
-          <Route path="/perfil" element={<ProtecaoRotaPerfil />}>
-            <Route path="/perfil" element={<Perfil />} />
-          </Route>
+          <Route path="/perfil/*" element={<ProtecaoRotaPerfil />}></Route>
         </Routes>
         <Footer />
       </UserStorage>
