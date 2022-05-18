@@ -11,7 +11,7 @@ const Login = () => {
   const ctx = React.useContext(UserContext);
 
   // Verificar porque demora para fazer a validação
-  if (ctx.verificaLogin) return <Navigate to="/conta" />;
+  if (ctx.verificaLogin) return <Navigate to="/perfil" />;
   return (
     <C.Container>
       <C.BackgroundImagem></C.BackgroundImagem>
