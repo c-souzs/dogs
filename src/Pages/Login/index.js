@@ -18,9 +18,9 @@ const Login = () => {
       <C.LoginFormularios>
         <Routes>
           <Route path="/" element={<Logar />} />
-          <Route path="/criar" element={<Criar />} />
-          <Route path="/perdeu" element={<Perdeu />} />
-          <Route path="/resetar" element={<Resetar />} />
+          <Route path="cadastrar" element={<Criar />} />
+          <Route path="perdeu" element={<Perdeu />} />
+          <Route path="resetar" element={<Resetar />} />
         </Routes>
       </C.LoginFormularios>
     </C.Container>

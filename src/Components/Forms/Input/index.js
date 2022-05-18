@@ -7,6 +7,7 @@ const Input = ({
   name,
   value,
   onChange,
+  onClick,
   validarAt,
   erro,
 }) => {
@@ -19,6 +20,7 @@ const Input = ({
         name={name}
         value={value}
         onChange={onChange}
+        onClick={onClick}
         onBlur={validarAt}
       />
       {erro ? <C.Erro>{erro}</C.Erro> : ''}

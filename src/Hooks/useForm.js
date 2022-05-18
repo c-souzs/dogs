@@ -6,6 +6,10 @@ const validacao = {
     regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
     mensagem: "A senha precisa conter pelo menos 8 caracteres ...",
   },
+  email: {
+    regex: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+    mensagem: 'Preencha um email válido.'
+  }
 };
 
 const useForm = (tipo) => {
@@ -17,6 +21,10 @@ const useForm = (tipo) => {
     if(erro) validar(target.value);
     setValor(target.value);
   };
+
+  const onClick = () => {
+    setErro(null)
+  }
 
   // É retornado false quando o vaor não esta validado e true quando esta tudo certo ou o elemento não precisa de validação
   const validar = (valor) => {
@@ -40,6 +48,7 @@ const useForm = (tipo) => {
     valor,
     setValor,
     onChange,
+    onClick,
     validarAt: () => validar(valor),
     erro,
   };
