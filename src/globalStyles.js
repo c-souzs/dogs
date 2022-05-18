@@ -64,4 +64,9 @@ export const Titulo = styled.h1`
   }
 `;
 
+export const Perro = styled.p`
+  color: rgb(255, 51, 17);
+  margin: 1rem 0px;
+`;
+
 export default GlobalStyles;

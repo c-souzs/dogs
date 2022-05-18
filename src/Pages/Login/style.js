@@ -18,4 +18,5 @@ export const LoginFormularios = styled.div`
   max-width: 30rem;
   padding: 1rem;
   margin-top: 20vh;
+  margin-bottom: 5vh;
 `;
