@@ -51,3 +51,16 @@ export function POST_USER(body) {
     },
   };
 }
+
+export function POST_PHOT(formData) {
+  return {
+    url: URL_API + '/api/photo',
+    options: {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
+      body: formData,
+    },
+  };
+}
