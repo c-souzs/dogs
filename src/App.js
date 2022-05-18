@@ -5,10 +5,10 @@ import Header from "./Components/Header";
 import GlobalStyles, { Button, Titulo } from "./globalStyles";
 import Login from "./Pages/Login";
 import Perfil from "./Pages/Perfil";
+import ProtecaoRotaPerfil from "./Pages/Perfil/ProtecaoRota";
 import { UserStorage } from "./store/UserContext";
 
 function App() {
-
   return (
     <>
       <GlobalStyles />
@@ -16,7 +16,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="login/*" element={<Login />} />
-          <Route path='conta/*' element={<Perfil />}/>
+          <Route path="/perfil" element={<ProtecaoRotaPerfil />}>
+            <Route path="/perfil" element={<Perfil />} />
+          </Route>
         </Routes>
         <Footer />
       </UserStorage>

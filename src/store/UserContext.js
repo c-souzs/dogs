@@ -23,7 +23,10 @@ export function UserStorage({ children }) {
   React.useEffect(() => {
     const loginAutomatico = async () => {
       const temToken = localStorage.getItem("token");
-      if (!temToken) return;
+      if (!temToken){
+        setVerificaLogin(false);
+        return;
+      };
 
       const { url, options } = POST_TOKEN_VALIDADO(temToken);
       const { response } = await request(url, options);
@@ -48,7 +51,7 @@ export function UserStorage({ children }) {
     if (response.ok) {
       localStorage.setItem("token", json.token);
       puxarUsuario(json.token);
-      navegar('/conta');
+      navegar('/perfil');
     }
   };
 
