@@ -15,6 +15,7 @@ const Criar = () => {
   const password = useForm();
   const { request, erro, carregando } = useFecth();
 
+  // Valida os campos normal. Pega os dados cadastros e manda para a API, quando for cadastrado é chamado a função que faz o login automatico.
   const enviarDados = async (e) => {
     e.preventDefault();
 

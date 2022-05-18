@@ -14,7 +14,7 @@ const Header = () => {
         <Link to="/">
           <img src={logo} alt="Logo da rede social em svg" />
         </Link>
-        <C.LinkFlex to={`${ctx.verificaLogin ? '/conta' : '/login'}`}>
+        <C.LinkFlex to={`${ctx.verificaLogin ? '/perfil' : '/login'}`}>
           {ctx.verificaLogin ? `Bem vindo, ${ctx.dadosUsuario.nome}` : 'Login / Criar'}
           <img
             src={iconeUsuario}
