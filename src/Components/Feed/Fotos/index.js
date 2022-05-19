@@ -2,7 +2,7 @@ import React from "react";
 import { Perro } from "../../../globalStyles";
 import useFecth from "../../../Hooks/useFecth";
 import { GET_PHOTOS } from "../../../services/api";
-import Carregando from "../../Carregando";
+import Loader from "../../Lodaer";
 import Foto from "../Foto";
 import * as C from "./style.js";
 
@@ -18,7 +18,7 @@ const Fotos = ({setModalFoto}) => {
   }, [request]);
 
   if (erro) return <Perro>{erro}</Perro>;
-  if (carregando) return <Carregando />;
+  if (carregando) return <Loader />;
   if (dados)
     return (
       <C.ListaFotos>

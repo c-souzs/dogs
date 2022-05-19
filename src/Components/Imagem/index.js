@@ -7,7 +7,6 @@ const Imagem = ({ alt, ...props }) => {
   const carregamentoCompleto = ({ target }) => {
     setCarregando(false);
     target.style.opacity = 1;
-    console.log("carregou");
   };
 
   return (
