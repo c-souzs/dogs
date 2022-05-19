@@ -1,12 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Titulo } from "../../globalStyles";
+import useFecth from "../../Hooks/useFecth";
+import { DELETE_PHOTO } from "../../services/api";
+import { UserContext } from "../../store/UserContext";
 import Imagem from "../Imagem";
+import Loader from "../Lodaer";
 import FotoComentarios from "./FotoComentarios";
 import * as C from "./style.js";
 
 const FotoContainer = ({ dados }) => {
   const { photo, comments } = dados;
+  const {dadosUsuario} = React.useContext(UserContext);
+  const {request, carregando} = useFecth();
+
+  const apagarFoto = async () => {
+    const alertResposta = window.confirm(`Deseja apagar a foto ${photo.title}???`);
+    
+    if(alertResposta){
+      
+      const {url, options} = DELETE_PHOTO(photo.id);
+      const {response} = await request(url, options);
+
+      if(response.ok) window.location.reload();
+    }
+
+  }
+
   return (
     <C.FotoContainer>
       <C.FotoItem>
@@ -14,7 +34,8 @@ const FotoContainer = ({ dados }) => {
       </C.FotoItem>
       <C.Informacoes>
         <C.InfoPostagem>
-          <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+          { (dadosUsuario && dadosUsuario.username !== photo.author) ? <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link> : undefined}
+          { (dadosUsuario && dadosUsuario.username === photo.author) ? <C.BotaoApagar onClick={apagarFoto}>Apagar</C.BotaoApagar> : undefined}
           <C.Acessos>{photo.acessos}</C.Acessos>
         </C.InfoPostagem>
         <Titulo>
@@ -26,6 +47,7 @@ const FotoContainer = ({ dados }) => {
         </C.Atributos>
       </C.Informacoes>
       <FotoComentarios id={photo.id} comments={comments} />
+      {carregando ? <Loader /> : undefined}
     </C.FotoContainer>
   );
 };
