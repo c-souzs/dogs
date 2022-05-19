@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Titulo } from "../../globalStyles";
+import Imagem from "../Imagem";
 import FotoComentarios from "./FotoComentarios";
 import * as C from "./style.js";
 
@@ -9,7 +10,7 @@ const FotoContainer = ({ dados }) => {
   return (
     <C.FotoContainer>
       <C.FotoItem>
-        <img src={photo.src} alt={photo.title} />
+        <Imagem src={photo.src} alt={photo.title}/>
       </C.FotoItem>
       <C.Informacoes>
         <C.InfoPostagem>
