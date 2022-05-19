@@ -1,5 +1,4 @@
 import React from 'react'
-import useFecth from '../../Hooks/useFecth'
 import Fotos from './Fotos'
 import Modal from './Modal'
 
