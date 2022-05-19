@@ -64,3 +64,23 @@ export function POST_PHOT(formData) {
     },
   };
 }
+
+export function GET_PHOTOS({ page, total, user }) {
+  return {
+    url: `${URL_API}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
+
+export function GET_PHOTO(id) {
+  return {
+    url: `${URL_API}/api/photo/${id}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}

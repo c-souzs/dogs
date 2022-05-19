@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import HeaderNavegacao from './HeaderNavegacao'
 import { Container } from '../../globalStyles'
-import Feed from '../Feed'
+import Feed from '../../Components/Feed'
 import PostarFoto from './PostarFoto'
 import Estatisticas from '../Perfil/Estatisticas/index.js';
 
