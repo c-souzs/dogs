@@ -6,12 +6,12 @@ import Loader from "../../Lodaer";
 import Foto from "../Foto";
 import * as C from "./style.js";
 
-const Fotos = ({setModalFoto}) => {
+const Fotos = ({user, setModalFoto}) => {
   const { carregando, erro, request, dados } = useFecth();
 
   React.useEffect(() => {
     const buscarFotos = async () => {
-      const { url, options } = GET_PHOTOS({ page: 1, total: 6, user: 0 });
+      const { url, options } = GET_PHOTOS({ page: 1, total: 6, user});
       const { response, json } = await request(url, options);
     };
     buscarFotos();
