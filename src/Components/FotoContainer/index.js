@@ -11,7 +11,7 @@ import * as C from "./style.js";
 
 const FotoContainer = ({ dados }) => {
   const { photo, comments } = dados;
-  const {dadosUsuario} = React.useContext(UserContext);
+  const {dadosUsuario, verificaLogin} = React.useContext(UserContext);
   const {request, carregando} = useFecth();
 
   const apagarFoto = async () => {
@@ -46,7 +46,7 @@ const FotoContainer = ({ dados }) => {
           <C.Atributo>{photo.idade} anos</C.Atributo>
         </C.Atributos>
       </C.Informacoes>
-      <FotoComentarios id={photo.id} comments={comments} />
+      {verificaLogin ? <FotoComentarios id={photo.id} comments={comments} /> : undefined}
       {carregando ? <Loader /> : undefined}
     </C.FotoContainer>
   );

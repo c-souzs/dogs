@@ -6,16 +6,17 @@ import Loader from "../../Lodaer";
 import Foto from "../Foto";
 import * as C from "./style.js";
 
-const Fotos = ({user, setModalFoto}) => {
+const Fotos = ({user, pg, setModalFoto, setInfinito}) => {
   const { carregando, erro, request, dados } = useFecth();
-
   React.useEffect(() => {
     const buscarFotos = async () => {
-      const { url, options } = GET_PHOTOS({ page: 1, total: 6, user});
-      const { response, json } = await request(url, options);
+      const { url, options } = GET_PHOTOS({ page: pg, total: 6, user});
+      const {response, json} = await request(url, options);
+      console.log(json, url);
+      if(response && response.ok && json.length < 6 ) setInfinito(false);
     };
     buscarFotos();
-  }, [request]);
+  }, [request, user, pg, setInfinito]);
 
   if (erro) return <Perro>{erro}</Perro>;
   if (carregando) return <Loader />;
