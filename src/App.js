@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import Feed from "./Components/Feed";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import GlobalStyles, { Button, Titulo } from "./globalStyles";
@@ -15,6 +16,7 @@ function App() {
       <UserStorage>
         <Header />
         <Routes>
+          <Route path="/" element={<Feed />} />
           <Route path="login/*" element={<Login />} />
           <Route path="/perfil/*" element={<ProtecaoRotaPerfil />}></Route>
         </Routes>

@@ -5,10 +5,14 @@ import { Container } from '../../globalStyles'
 import Feed from '../../Components/Feed'
 import PostarFoto from './PostarFoto'
 import Estatisticas from '../Perfil/Estatisticas/index.js';
+import { UserContext } from '../../store/UserContext'
 
 const Perfil = () => {
   const location = useLocation();
   const [titulo, setTitulo] = React.useState('');
+  const {dadosUsuario} = React.useContext(UserContext);
+
+
   React.useEffect(() => {
     const { pathname } = location;
 
@@ -25,7 +29,7 @@ const Perfil = () => {
     <Container as='section'>
       <HeaderNavegacao titulo={titulo}/>
       <Routes>
-        <Route path='/' element={<Feed />}/>
+        <Route path='/' element={<Feed id={dadosUsuario.id}/>}/>
         <Route path='/postar' element={<PostarFoto />}/>
         <Route path='/estatisticas' element={<Estatisticas />}/>
         <Route path='/teste' element={<Estatisticas />}/>

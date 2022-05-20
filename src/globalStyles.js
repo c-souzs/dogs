@@ -40,6 +40,7 @@ export const Container = styled.div`
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
+  margin-top: ${({mT}) => mT ? '2rem' : ''};
 `;
 
 export const Titulo = styled.h1`
@@ -67,6 +68,12 @@ export const Titulo = styled.h1`
 export const Perro = styled.p`
   color: rgb(255, 51, 17);
   margin: 1rem 0px;
+`;
+
+export const Pfim = styled.p`
+  text-align: center;
+  padding: 2rem 0px 4rem;
+  color: rgb(94 92 94 / 1);
 `;
 
 export default GlobalStyles;
