@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 0 2rem ;
+  padding: ${({fotoUnica}) => fotoUnica ? '0' : '0 2rem'};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   grid-row: 2/3;
   overflow-y: auto;
-  margin-bottom: 2rem;
+  margin-bottom: ${({fotoUnica}) => fotoUnica ? '0' : '2rem'};
   scroll-behavior: smooth;
 `;
 
 export const Comentarios = styled.ul`
   word-break: break-word;
+  max-height: ${({fotoUnica}) => fotoUnica ? '30vh' : 'initial'};
 `;
 
 export const Comentario = styled.li`

@@ -17,7 +17,7 @@ export const Formulario = styled.form`
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: stretch;
-  margin: 1rem;
+  margin: ${({fotoUnica}) => fotoUnica ? '1rem 0' : '1rem'};
 `;
 
 export const TextArea = styled.textarea`
