@@ -6,6 +6,7 @@ import Feed from '../../Components/Feed'
 import PostarFoto from './PostarFoto'
 import Estatisticas from '../Perfil/Estatisticas/index.js';
 import { UserContext } from '../../store/UserContext'
+import PaginaNaoEncontrada from '../../Components/PaginaNaoEncontrada'
 
 const Perfil = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const Perfil = () => {
         <Route path='/postar' element={<PostarFoto />}/>
         <Route path='/estatisticas' element={<Estatisticas />}/>
         <Route path='/teste' element={<Estatisticas />}/>
+        <Route path="*" element={<PaginaNaoEncontrada />} />
       </Routes>
     </Container>
   )

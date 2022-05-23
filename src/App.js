@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Feed from "./Components/Feed";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import PaginaNaoEncontrada from "./Components/PaginaNaoEncontrada";
 import GlobalStyles, { Button, Titulo } from "./globalStyles";
 import Foto from "./Pages/Foto";
 import Login from "./Pages/Login";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/perfil/*" element={<ProtecaoRotaPerfil />}></Route>
           <Route path="/foto/:id" element={<Foto />} />
           <Route path="/usuario/:name" element={<Usuario />} />
+          <Route path="*" element={<PaginaNaoEncontrada />} />
         </Routes>
         <Footer />
       </UserStorage>

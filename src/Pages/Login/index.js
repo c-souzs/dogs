@@ -6,6 +6,7 @@ import Perdeu from "./PerdeuSenha/index.js";
 import Resetar from "./Resetar/index.js";
 import { UserContext } from "../../store/UserContext.js";
 import * as C from "./style.js";
+import PaginaNaoEncontrada from "../../Components/PaginaNaoEncontrada/index.js";
 
 const Login = () => {
   const ctx = React.useContext(UserContext);
@@ -21,6 +22,7 @@ const Login = () => {
           <Route path="cadastrar" element={<Criar />} />
           <Route path="perdeu" element={<Perdeu />} />
           <Route path="resetar" element={<Resetar />} />
+          <Route path="*" element={<PaginaNaoEncontrada />} />
         </Routes>
       </C.LoginFormularios>
     </C.Container>
