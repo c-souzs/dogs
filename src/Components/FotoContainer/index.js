@@ -11,31 +11,34 @@ import * as C from "./style.js";
 
 const FotoContainer = ({ dados, fotoUnica }) => {
   const { photo, comments } = dados;
-  const {dadosUsuario, verificaLogin} = React.useContext(UserContext);
-  const {request, carregando} = useFecth();
+  const { dadosUsuario, verificaLogin } = React.useContext(UserContext);
+  const { request, carregando } = useFecth();
 
   const apagarFoto = async () => {
-    const alertResposta = window.confirm(`Deseja apagar a foto ${photo.title}???`);
-    
-    if(alertResposta){
-      
-      const {url, options} = DELETE_PHOTO(photo.id);
-      const {response} = await request(url, options);
+    const alertResposta = window.confirm(
+      `Deseja apagar a foto ${photo.title}???`
+    );
 
-      if(response.ok) window.location.reload();
+    if (alertResposta) {
+      const { url, options } = DELETE_PHOTO(photo.id);
+      const { response } = await request(url, options);
+
+      if (response.ok) window.location.reload();
     }
-
-  }
+  };
 
   return (
     <C.FotoContainer fotoUnica={fotoUnica}>
       <C.FotoItem fotoUnica={fotoUnica}>
-        <Imagem src={photo.src} alt={photo.title}/>
+        <Imagem src={photo.src} alt={photo.title} />
       </C.FotoItem>
       <C.Informacoes fotoUnica={fotoUnica}>
         <C.InfoPostagem>
-          { (dadosUsuario && dadosUsuario.username !== photo.author) ? <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link> : undefined}
-          { (dadosUsuario && dadosUsuario.username === photo.author) ? <C.BotaoApagar onClick={apagarFoto}>Apagar</C.BotaoApagar> : undefined}
+          {dadosUsuario && dadosUsuario.username === photo.author ? (
+            <C.BotaoApagar onClick={apagarFoto}>Apagar</C.BotaoApagar>
+          ) : (
+            <Link to={`/usuario/${photo.author}`}>@{photo.author}</Link>
+          )}
           <C.Acessos>{photo.acessos}</C.Acessos>
         </C.InfoPostagem>
         <Titulo>
@@ -46,7 +49,13 @@ const FotoContainer = ({ dados, fotoUnica }) => {
           <C.Atributo>{photo.idade} anos</C.Atributo>
         </C.Atributos>
       </C.Informacoes>
-      {verificaLogin ? <FotoComentarios id={photo.id} comments={comments} fotoUnica={fotoUnica}/> : undefined}
+      {verificaLogin ? (
+        <FotoComentarios
+          id={photo.id}
+          comments={comments}
+          fotoUnica={fotoUnica}
+        />
+      ) : undefined}
       {carregando ? <Loader /> : undefined}
     </C.FotoContainer>
   );
