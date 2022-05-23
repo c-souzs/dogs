@@ -12,6 +12,7 @@ export const Button = styled.button`
   padding: 0.8rem 1.2rem;
   box-sizing: border-box;
   transition: 0.1s;
+  display: block;
 
   &:hover,
   &:focus {
