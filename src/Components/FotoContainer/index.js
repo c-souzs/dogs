@@ -9,7 +9,7 @@ import Loader from "../Lodaer";
 import FotoComentarios from "./FotoComentarios";
 import * as C from "./style.js";
 
-const FotoContainer = ({ dados }) => {
+const FotoContainer = ({ dados, fotoUnica }) => {
   const { photo, comments } = dados;
   const {dadosUsuario, verificaLogin} = React.useContext(UserContext);
   const {request, carregando} = useFecth();
@@ -28,11 +28,11 @@ const FotoContainer = ({ dados }) => {
   }
 
   return (
-    <C.FotoContainer>
-      <C.FotoItem>
+    <C.FotoContainer fotoUnica={fotoUnica}>
+      <C.FotoItem fotoUnica={fotoUnica}>
         <Imagem src={photo.src} alt={photo.title}/>
       </C.FotoItem>
-      <C.Informacoes>
+      <C.Informacoes fotoUnica={fotoUnica}>
         <C.InfoPostagem>
           { (dadosUsuario && dadosUsuario.username !== photo.author) ? <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link> : undefined}
           { (dadosUsuario && dadosUsuario.username === photo.author) ? <C.BotaoApagar onClick={apagarFoto}>Apagar</C.BotaoApagar> : undefined}
@@ -46,7 +46,7 @@ const FotoContainer = ({ dados }) => {
           <C.Atributo>{photo.idade} anos</C.Atributo>
         </C.Atributos>
       </C.Informacoes>
-      {verificaLogin ? <FotoComentarios id={photo.id} comments={comments} /> : undefined}
+      {verificaLogin ? <FotoComentarios id={photo.id} comments={comments} fotoUnica={fotoUnica}/> : undefined}
       {carregando ? <Loader /> : undefined}
     </C.FotoContainer>
   );

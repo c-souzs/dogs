@@ -11,11 +11,12 @@ const animaModal = keyframes`
 
 export const FotoContainer = styled.div`
   margin: auto;
-  height: 36rem;
+  height: ${({ fotoUnica }) => (fotoUnica ? "auto" : "36rem")};
   border-radius: 0.2rem;
   background-color: #fff;
-  display: grid;
-  grid-template-columns: 36rem 20rem;
+  display: ${({ fotoUnica }) => (fotoUnica ? "block" : "grid")};
+  grid-template-columns: ${({ fotoUnica }) =>
+    fotoUnica ? "1fr" : "36rem 20rem"};
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
   opacity: 0;
@@ -24,11 +25,19 @@ export const FotoContainer = styled.div`
 `;
 
 export const FotoItem = styled.div`
-  grid-row: 1/4;
+  grid-row:  ${({ fotoUnica }) => (fotoUnica ? "1" : "1/4")};
+  ${({fotoUnica}) => {
+    if(fotoUnica){
+      return {
+        overflow: "hidden",
+        borderRadius: '.4rem'
+      }
+    }
+  }}
 `;
 
 export const Informacoes = styled.div`
-  padding: 2rem 2rem 0 2rem;
+  padding: ${({ fotoUnica }) => (fotoUnica ? "1rem 0 0" : "2rem 2rem 0 2rem")};
 `;
 
 export const InfoPostagem = styled.p`
@@ -51,7 +60,7 @@ export const BotaoApagar = styled.button`
   transition: 0.1s;
 
   &:hover,
-  &:focus{
+  &:focus {
     outline: none;
     background: #fff;
     box-shadow: 0 0 0 3px #eee;

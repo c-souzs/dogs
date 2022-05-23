@@ -4,7 +4,7 @@ import useFecth from "../../../Hooks/useFecth";
 import { POST_COMMENT } from "../../../services/api";
 import * as C from "./style.js";
 
-const FormComentarios = ({ idFoto, setComentarios }) => {
+const FormComentarios = ({ idFoto, setComentarios, fotoUnica }) => {
   const [comment, setComment] = React.useState("");
   const { request, carregando, erro } = useFecth();
   const inputComentario = React.useRef(null);
@@ -26,7 +26,7 @@ const FormComentarios = ({ idFoto, setComentarios }) => {
   };
 
   return (
-    <C.Formulario onSubmit={enviarComentario}>
+    <C.Formulario onSubmit={enviarComentario} fotoUnica={fotoUnica}>
       <C.TextArea
       ref={inputComentario}
         id="comment"

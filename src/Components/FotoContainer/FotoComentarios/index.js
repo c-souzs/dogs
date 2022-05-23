@@ -2,7 +2,7 @@ import React from "react";
 import FormComentarios from "../FotoComentariosForm";
 import * as C from "./style.js";
 
-const FotoComentarios = ({ id, comments }) => {
+const FotoComentarios = ({ id, comments, fotoUnica }) => {
   const [comentarios, setComentarios] = React.useState(comments);
   const areaComentario = React.useRef(null);
   
@@ -13,8 +13,8 @@ const FotoComentarios = ({ id, comments }) => {
 
   return (
     <>
-      <C.Container ref={areaComentario}>
-        <C.Comentarios>
+      <C.Container ref={areaComentario} fotoUnica={fotoUnica}>
+        <C.Comentarios fotoUnica={fotoUnica}>
           {comentarios.map((comentario) => (
             <C.Comentario key={comentario.comment_ID}>
               <C.Conteudo>
@@ -25,7 +25,7 @@ const FotoComentarios = ({ id, comments }) => {
           ))}
         </C.Comentarios>
       </C.Container>
-      <FormComentarios idFoto={id} setComentarios={setComentarios} />
+      <FormComentarios idFoto={id} setComentarios={setComentarios} fotoUnica={fotoUnica}/>
     </>
   );
 };
