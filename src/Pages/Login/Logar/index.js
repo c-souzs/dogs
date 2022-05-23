@@ -38,6 +38,7 @@ const Logar = () => {
           <Button>Entrar</Button>
         )}
         {ctx.erro ? <Perro>{ctx.erro}</Perro> : ""}
+        <C.LinkRecuperacao to='/login/perdeu'>Perdeu a senha?</C.LinkRecuperacao>
       </form>
       <C.Cadastro>
         <C.CadastroTitulo>Cadastre-se</C.CadastroTitulo>

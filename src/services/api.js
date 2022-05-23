@@ -110,3 +110,29 @@ export function DELETE_PHOTO(id) {
     },
   };
 }
+
+export function LOST_PASSWORD(body) {
+  return {
+    url: URL_API + '/api/password/lost',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function RESET_PASSWORD(body) {
+  return {
+    url: URL_API + '/api/password/reset',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
