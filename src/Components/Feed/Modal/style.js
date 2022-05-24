@@ -10,4 +10,8 @@ export const Modal = styled.div`
   display: flex;
   z-index: 1000;
   padding: 2rem calc(4rem + 15px) 2rem 4rem;
+
+  @media (max-width: 40rem){
+    padding: 1rem;
+  }
 `;

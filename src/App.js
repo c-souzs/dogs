@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import styled from "styled-components";
 import Feed from "./Components/Feed";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -18,14 +17,16 @@ function App() {
       <GlobalStyles />
       <UserStorage>
         <Header />
-        <Routes>
-          <Route path="/" element={<Feed />} />
-          <Route path="login/*" element={<Login />} />
-          <Route path="/perfil/*" element={<ProtecaoRotaPerfil />}></Route>
-          <Route path="/foto/:id" element={<Foto />} />
-          <Route path="/usuario/:name" element={<Usuario />} />
-          <Route path="*" element={<PaginaNaoEncontrada />} />
-        </Routes>
+        <main className="AppBody">
+          <Routes>
+            <Route path="/" element={<Feed />} />
+            <Route path="login/*" element={<Login />} />
+            <Route path="/perfil/*" element={<ProtecaoRotaPerfil />}></Route>
+            <Route path="/foto/:id" element={<Foto />} />
+            <Route path="/usuario/:name" element={<Usuario />} />
+            <Route path="*" element={<PaginaNaoEncontrada />} />
+          </Routes>
+        </main>
         <Footer />
       </UserStorage>
     </>

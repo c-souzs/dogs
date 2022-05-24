@@ -22,6 +22,11 @@ export const FotoContainer = styled.div`
   opacity: 0;
   transform: scale(0.8);
   animation: ${animaModal} 0.3s forwards;
+
+  @media (max-width: 40rem){
+    display: block;
+    overflow-y: auto;
+  }
 `;
 
 export const FotoItem = styled.div`
