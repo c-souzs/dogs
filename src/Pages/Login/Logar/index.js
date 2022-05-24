@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../../Components/Forms/Button";
 import Input from "../../../Components/Forms/Input";
+import Head from "../../../Components/Head";
 import { Perro, Titulo } from "../../../globalStyles";
 import useForm from "../../../Hooks/useForm";
 import { UserContext } from "../../../store/UserContext";
@@ -28,6 +29,7 @@ const Logar = () => {
 
   return (
     <>
+      <Head title='Login' description='Página de login do site dogs.'/>
       <Titulo>Login</Titulo>
       <form onSubmit={enviarDados}>
         <Input label="Usuário" name="userName" {...userName} />

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../Components/Forms/Button";
 import Input from "../../../Components/Forms/Input";
+import Head from "../../../Components/Head";
 import { Perro, Titulo } from "../../../globalStyles";
 import useFecth from "../../../Hooks/useFecth";
 import useForm from "../../../Hooks/useForm";
@@ -40,6 +41,7 @@ const Resetar = () => {
 
   return (
     <>
+      <Head title='Recupera sua conta' description='Página de mudança de senha do site dogs.'/>
       <Titulo>Recupere sua conta.</Titulo>
       <form onSubmit={mudarSenha}>
         <Input

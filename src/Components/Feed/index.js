@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Pfim } from "../../globalStyles";
+import Head from "../Head";
 import Fotos from "./Fotos";
 import Modal from "./Modal";
 
@@ -34,9 +35,9 @@ const Feed = ({ id }) => {
       window.removeEventListener("scroll", scrollInfinito);
     };
   }, [infinito]);
-
   return (
     <Container as='section' mT={id ? false : true}>
+      <Head title={`Fotos`} description='Home do site dogs com o feed de fotos.'/>
       {pagina.map((pg) => {
         return (
           <Fotos

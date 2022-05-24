@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../Components/Forms/Button";
 import Input from "../../../Components/Forms/Input";
+import Head from "../../../Components/Head";
 import { Perro } from "../../../globalStyles";
 import useFecth from "../../../Hooks/useFecth";
 import useForm from "../../../Hooks/useForm";
@@ -41,6 +42,7 @@ function PostarFoto() {
 
   return (
     <C.Container>
+      <Head title='Postar foto' description='Página de postar foto do site dogs.'/>
       <C.FormularioLinha onSubmit={enviarDados} linha={img ? false : true}>
         <Input label="Nome" name="nome" {...nome} />
         <C.InputsFlex>

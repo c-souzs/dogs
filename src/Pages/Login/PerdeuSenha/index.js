@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../../Components/Forms/Button";
 import Input from "../../../Components/Forms/Input";
+import Head from "../../../Components/Head";
 import { Perro, Titulo } from "../../../globalStyles";
 import useFecth from "../../../Hooks/useFecth";
 import useForm from "../../../Hooks/useForm";
@@ -26,6 +27,7 @@ const Perdeu = () => {
 
   return (
     <>
+      <Head title='Perdeu a senha' description='Página de recuperação de senha do site dogs.'/>
       <Titulo>Perdeu a senha?</Titulo>
       {dados ? (
         <p style={{ color: "#4c1" }}>{dados}</p>

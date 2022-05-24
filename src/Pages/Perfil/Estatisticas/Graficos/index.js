@@ -1,5 +1,6 @@
 import React from "react";
 import { VictoryBar, VictoryChart, VictoryPie } from "victory";
+import Head from "../../../../Components/Head/index.js";
 import * as C from "./style.js";
 
 function Graficos({ dados }) {
@@ -30,6 +31,7 @@ function Graficos({ dados }) {
   };
   return (
     <C.ContainerGrid as="section">
+      <Head title='Suas estatísticas' description='Página de estatísticas do site dogs.'/>
       <C.Acessos style={{ ...efeitos }}>Acessos: {acessos}</C.Acessos>
       <div style={{ ...efeitos }}>
         <VictoryPie

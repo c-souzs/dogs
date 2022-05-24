@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../../Components/Forms/Button";
 import Input from "../../../Components/Forms/Input";
+import Head from "../../../Components/Head";
 import { Perro, Titulo } from "../../../globalStyles";
 import useFecth from "../../../Hooks/useFecth";
 import useForm from "../../../Hooks/useForm";
@@ -33,6 +34,7 @@ const Criar = () => {
   };
   return (
     <>
+      <Head title='Cadastre-se' description='Página de cadastro do site dogs.'/>
       <Titulo>Cadastre-se</Titulo>
       <form onSubmit={enviarDados}>
         <Input label="Usuário" name="userName" {...usuario} />
