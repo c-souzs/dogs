@@ -27,13 +27,12 @@ const Perfil = () => {
   }, [location]);
 
   return (
-    <Container as='section'>
+    <Container as='section' >
       <HeaderNavegacao titulo={titulo}/>
       <Routes>
         <Route path='/' element={<Feed id={dadosUsuario.id}/>}/>
         <Route path='/postar' element={<PostarFoto />}/>
         <Route path='/estatisticas' element={<Estatisticas />}/>
-        <Route path='/teste' element={<Estatisticas />}/>
         <Route path="*" element={<PaginaNaoEncontrada />} />
       </Routes>
     </Container>

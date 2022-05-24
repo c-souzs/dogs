@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { keyframes } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap');
@@ -34,13 +35,17 @@ const GlobalStyles = createGlobalStyle`
     ul{
         list-style: none;
     }
+    
+    .AppBody{
+      min-height: 100vh;
+    }
 `;
 
 export const Container = styled.div`
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
-  margin-top: ${({mT}) => mT ? '2rem' : ''};
+  margin-top: ${({ mT }) => (mT ? "2rem" : "")};
 `;
 
 export const Titulo = styled.h1`
@@ -71,9 +76,9 @@ export const Perro = styled.p`
 `;
 
 export const Pfim = styled.p`
+  font-size: 1.3rem;
   text-align: center;
-  padding: 2rem 0px 4rem;
-  color: rgb(94 92 94 / 1);
+  padding-bottom: 2rem;
 `;
 
 export default GlobalStyles;

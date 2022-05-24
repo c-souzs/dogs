@@ -7,7 +7,7 @@ const Feed = ({ id }) => {
   const [modalFoto, setModalFoto] = React.useState(null);
   const [pagina, setPagina] = React.useState([1]);
   const [infinito, setInfinito] = React.useState(true);
-
+  
   React.useEffect(() => {
     let esperar = false;
     const scrollInfinito = () => {
@@ -36,7 +36,7 @@ const Feed = ({ id }) => {
   }, [infinito]);
 
   return (
-    <Container as={id ? "div" : "section"} mT={id ? false : true}>
+    <Container as='section' mT={id ? false : true}>
       {pagina.map((pg) => {
         return (
           <Fotos
@@ -51,7 +51,8 @@ const Feed = ({ id }) => {
       {modalFoto ? (
         <Modal foto={modalFoto} setModalFoto={setModalFoto} />
       ) : undefined}
-      {!infinito ? <Pfim>Não existe mais postagem. </Pfim>: undefined}
+      {!infinito && id === undefined? <Pfim>Não existe mais postagem. </Pfim>: undefined}
+      {id !== undefined ? <Pfim>Fim da suas postagens.</Pfim> : undefined}
     </Container>
   );
 };
