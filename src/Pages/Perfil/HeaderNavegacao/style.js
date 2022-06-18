@@ -15,14 +15,7 @@ export const Nav = styled.nav`
   gap: 1rem;
 `;
 
-export const NavMobile = styled.nav.attrs(({ ativo }) => {
-  if (ativo) {
-    return {
-      transform: "initial !important",
-      opacity: "1 !important",
-    };
-  }
-})`
+export const NavMobile = styled.nav`
   display: block;
   position: absolute;
   z-index: 999;
@@ -37,28 +30,10 @@ export const NavMobile = styled.nav.attrs(({ ativo }) => {
   pointer-events: none;
   transition: 0.3s;
 
-  & a:hover svg > *,
-  & button:hover svg > * {
-    fill: #fb1;
-  }
-
-  & a,
-  & button {
-    display: flex;
-    align-items: center;
-    background: none;
-    width: 100%;
-    border: none;
-    padding: 0.5rem 0;
-    cursor: pointer;
-  }
-
-  & button {
-    border-bottom: none;
-  }
-
-  & svg {
-    margin-right: 0.5rem;
+  &.aberto {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
   }
 `;
 
@@ -91,17 +66,21 @@ export const LinkHeader = styled(NavLink)`
   @media (max-width: 40rem) {
     &:hover,
     &:focus,
-    &.active {
+    &.active,
+    & {
       background-color: initial;
       box-shadow: none;
-      border-color: initial;
+      border: none;
     }
 
     & {
       justify-content: flex-start;
+      width: auto;
+      gap: .5rem;
     }
 
-    &.active svg > * {
+    &.active svg > *,
+    &:hover svg > * {
       fill: #fb1;
     }
   }
@@ -109,26 +88,25 @@ export const LinkHeader = styled(NavLink)`
 
 export const BotaoSair = styled(LinkHeader)``;
 
-export const BtnMobile = styled(LinkHeader).attrs(({ ativo }) => {
-  if (ativo) {
-    return {
-      outline: "none",
-      backgroundColor: "#fff",
-      boxShadow: "0 0 0 3px #fea",
-      borderColor: "#fb1",
-      color: "#fb1",
-    };
-  }
-})`
-  padding: 0;
+const mobileAtivo = {
+  outline: "none",
+  background: "#fff",
+  boxShadow: "0 0 0 3px #fea",
+  borderColor: "#fb1",
+  color: "#fb1",
+};
+
+export const BtnMobile = styled(LinkHeader).attrs(({ ativo }) =>
+  ativo ? mobileAtivo : undefined
+)`
   justify-content: center;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+
   &:hover,
   &:focus {
-    outline: none;
-    background-color: #fff;
-    box-shadow: 0 0 0 3px #fea;
-    border-color: #fb1;
-    color: #fb1;
+    ${mobileAtivo}
   }
 
   &::after {
@@ -137,12 +115,12 @@ export const BtnMobile = styled(LinkHeader).attrs(({ ativo }) => {
     width: ${({ ativo }) => (ativo ? "4px" : "1.2rem")};
     height: ${({ ativo }) => (ativo ? "4px" : "2px")};
     border-radius: 2px;
-    background-color: currentColor;
+    background: currentColor;
     box-shadow: ${({ ativo }) =>
       ativo
         ? "0 8px currentColor, 0 -8px currentColor"
         : "0 6px currentColor, 0 -6px currentColor"};
-    transform: ${({ ativo }) => (ativo ? "rotate(-90deg)" : "none")};
+    ${({ ativo }) => (ativo ? { transform: "rotate(-90deg)" } : undefined)}
     transition: 0.2s;
   }
 `;

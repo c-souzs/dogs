@@ -25,7 +25,7 @@ const HeaderNavegacao = ({ titulo }) => {
     <C.Header>
       <Titulo>{titulo}</Titulo>
       {mobile && <C.BtnMobile as='button' ativo={mobileAtivo} aria-label="Menu" onClick={() => setMobileAtivo(!mobileAtivo)}></C.BtnMobile>}
-      <Nav style={mobileAtivo ? {opacity: '1', transform: 'initial', pointerEvents: 'initial'} : {}}>
+      <Nav className={mobileAtivo ? 'aberto' : 'fechado'}>
         <C.LinkHeader to="/perfil" end>
           {" "}
           <IconeFeed />{" "}
